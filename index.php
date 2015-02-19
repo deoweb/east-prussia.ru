@@ -124,12 +124,10 @@ echo "</script>";
               </ul>
             </li>
           </ul>
-
           <ul class="nav navbar-nav navbar-right">
             <li><a href="/index.php?reg" target="_blank">Reg</a></li>
             <li><a href="/index.php?login">Log In</a></li>
           </ul>
-
         </div>
       </div>
     </div>
