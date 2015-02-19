@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+	<style type="text/css">
+	.camscreenblock{
+		width: 700px;
+		height: 400px;
+		background: gray;
+	}
+
+	.camblock{
+		width: 30px;
+		height: 30px;
+		background: red;
+		margin: 5px;
+		float: left;
+		border: 1px solid #333;
+	}
+	#registrator{
+		width: 50px;
+		height: 10px;
+		background: green;
+		border: 1px solid #333;
+		float: bottom;
+	}
+	#camholder{
+			width: 698px;
+		height: 50px;
+		float: bottom;
+	}
+	#datablock{
+		width: 698px;
+		height: 200px;
+		border: 1px solid #333;
+
+	}
+
+
+	</style>
+
+	<script>
+	
+	var camnum = 1;
+	var cablen = 5;
+	
+	var camtransprice = 300;
+	var camblockprice = 100;
+	var camprice = 4900;
+
+	var regprice;
+	var regprice4 = 5600;
+	var regprice8 = 5600;
+	var regprice16 = 5600;
+	var cabprice = 150;
+	var monitorprice = 0;
+	var bpprice = 1200;
+	var bpnum = 1;
+	
+	function camscreen(camnumber){
+		camnum = camnumber;
+		var textcamvisual = "";
+		var regcamnum = "4";
+		var vblock = "";
+		textcamvisual +="<div id = 'camholder'>";
+		for (var i = 0; i < camnumber; i++) {
+			textcamvisual += "<div class='camblock'></div>";
+		};
+		textcamvisual +="</div>";
+		if (camnumber<5) {regcamnum = 4;regprice = regprice4; bpnum = 1;};
+		if (camnumber>4) {regcamnum = 8;regprice = regprice8; bpnum = 2;};
+		if (camnumber>8) {regcamnum = 16;regprice = regprice16; bpnum=3;};
+		if (camnumber>12) {bpnum=4;};
+
+		textcamvisual +="<div id='registrator'>"+"</div>";
+		textcamvisual += "<div>"+regcamnum+ "x chanel registrator</div>";
+	
+		document.getElementById("camscreenblock").innerHTML = textcamvisual;
+		datascreen();
+	}	
+	function datasum(){
+
+
+
+	}
+
+	function datascreen(){
+	
+		var datatext = "";
+		var summ = camnum*camprice + regprice + cablen*cabprice + monitorprice +bpprice*bpnum;
+		datatext += "Camera Number: " + camnum + "<br>";
+		datatext += "Cabel lenth: " + cablen + "<br>";
+		datatext += "BP number: " + bpnum + "<br>";	
+		datatext += "Summ: "+ summ + " rubles";
+		document.getElementById("datablock").innerHTML = datatext;
+
+	}
+
+	function lenthchange(cablenth){
+		cablen = cablenth;
+		datascreen();
+	}
+
+	function monitorchange(monitor){
+		if (monitor) monitorprice = 12500; else monitorprice =0;
+		datascreen();
+
+	}
+
+
+	</script>
+
+
+</head>
+
+<body>
+<div class="camscreenblock">
+	<div  id="camscreenblock">
+
+	</div>
+	<div id ="datablock">
+		
+	</div>
+</div>
+
+
+<div>
+Cam number<br>
+<input type="range" min="1" max="16" value="1" oninput="camscreen(this.value)" onchange="camscreen(this.value)"><br>
+Cabel lenth<br>
+<input type="range" min="5" max="60" value="5" oninput="lenthchange(this.value)" onchange="lenthchange(this.value)"><br>
+<input type="checkbox" onchange="monitorchange(this.checked)">Monitor 21"
+</div>
+
+
+<script type="text/javascript">
+	camscreen(1);
+	lenthchange(5);
+</script>
+
+
+
+
+
+</body>
+</html>
