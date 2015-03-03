@@ -104,9 +104,5 @@ function churchlistselect(){
 	document.getElementById("selectchurch").innerHTML = churchlist;
 }
 
-function addchurchpic(){
-
-	
-}
 
 
