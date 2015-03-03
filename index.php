@@ -1,6 +1,4 @@
-<?php
-$church_link = $_SERVER[REQUEST_URI];
-?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -8,7 +6,7 @@ $church_link = $_SERVER[REQUEST_URI];
 	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
   <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	<title>Кирхи и замки<?php echo $church_link;?></title>
+	<title>Кирхи и замки</title>
   <style type="text/css">
       #leftPan{
         width: 100%;
@@ -20,67 +18,7 @@ $church_link = $_SERVER[REQUEST_URI];
 
 <body>
 
-<?php
-$hostname = "mysql46.1gb.ru";
-$username = "gb_deoweb"; 
-$password = "68935fd2dwr"; 
-$dbName = "gb_deoweb"; 
- 
-mysql_connect($hostname, $username, $password) or die ("Cant make connect");
-mysql_query("SET NAMES 'cp1251'") or header('Location: Error');
-mysql_query("SET NAMES 'cp1251'");
-mysql_query("SET CHARACTER SET 'cp1251'");
-
-mysql_select_db($dbName) or die (mysql_error());
-$query = "SELECT * FROM church";
-$result = mysql_query($query);
-$rows = mysql_num_rows($result);
-
-$churchs = "var churchs = [";
-
-echo "<script>"; 
-for ($j=0; $j < $rows; ++$j) {
-	echo "var church".$j."={";
-	echo "id:'".mysql_result($result,$j, id)."',";
-	echo "name:'".mysql_result($result,$j, name)."',";
-	echo "dname:'".mysql_result($result,$j, dname)."',";
-	echo "adress:'".mysql_result($result,$j, adress)."',";
-	echo "est:'".mysql_result($result,$j, est)."',";
-	echo "status:'".mysql_result($result,$j, status)."',";
-	echo "photo:'".mysql_result($result,$j, photo1)."',";
-	echo "x:'".mysql_result($result,$j, x)."',";
-	echo "y:'".mysql_result($result,$j, y)."',";
-	echo "visible:'".mysql_result($result,$j, visible)."'";
-	echo "};";
-	$churchs .= "church".$j.",";
-}
-$churchs .= "];";
-echo $churchs;
-
-mysql_select_db($dbName) or die (mysql_error());
-$query = "SELECT * FROM pictures";
-$result = mysql_query($query);
-$rows = mysql_num_rows($result);
-
-$pictures = "var pictures = [";
-
-for ($j=0; $j < $rows; ++$j) {
-	echo "var pic".$j."={";
-	echo "id:'".(mysql_result($result,$j, id)-1)."',";
-	echo "object_id:'".mysql_result($result,$j, object_id)."',";
-	echo "link:'".mysql_result($result,$j, link)."',";
-	echo "year:'".mysql_result($result,$j, year)."',";
-	echo "author_id:'".mysql_result($result,$j, author_id)."',";
-	echo "out_link:'".mysql_result($result,$j, out_link)."',";
-	echo "visible:'".mysql_result($result,$j, visible)."',";
-	echo "description:'".mysql_result($result,$j, description)."'";
-	echo "};";
-	$pictures .= "pic".$j.",";
-}
-$pictures .= "];";
-echo $pictures;
-echo "</script>";	
-?>
+<?php include 'startlogin.php'; ?>
 
 <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -161,7 +99,6 @@ echo "</script>";
 					<p></p>					
 				</div>
 			</div>
-
 		</div>
 	</div> 
   <br>
