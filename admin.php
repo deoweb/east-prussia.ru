@@ -8,7 +8,7 @@ $church_link = $_SERVER[REQUEST_URI];
 	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
   <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	<title>Кирхи и замки<?php echo $church_link;?></title>
+	<title>Admin panel</title>
   <style type="text/css">
       #leftPan{
         width: 100%;
