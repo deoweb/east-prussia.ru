@@ -32,7 +32,7 @@ function showchurchlist(searchtext){
 			dangerlable = '';
 		};		
 	};
-	if (leftText == ""){leftText = 'íåò äàííûõ';};		
+	if (leftText == ""){leftText = 'нет объектов';};		
 };
 
 function setlistner(){
@@ -55,9 +55,9 @@ function showrighttext(){
 	var pictext = '';
 	churchtext += '<h2>' + ch.name +'</h2>' ;
 	churchtext += '</br>Id: ' + ch.id;
-	churchtext += '</br>Ðàñïîëîæåíèå: ' + ch.adress;
-	churchtext += '</br>Îñíîâàíà: ' + ch.est;
-	churchtext += '</br>Ñîñòîÿíèå: ' + ch.status;
+	churchtext += '</br>Адрес: ' + ch.adress;
+	churchtext += '</br>Основание: ' + ch.est;
+	churchtext += '</br>Статус: ' + ch.status;
 	document.getElementById("rightPan").innerHTML = churchtext;
 	pictext += '<img src="img/'+ch.photo+'" alt="'+ch.name+'" height = 200px></img>';
 	document.getElementById("rightPan2").innerHTML = pictext;
@@ -83,7 +83,7 @@ function showpictures(id){
 function bigpic(pic_id){
 document.getElementById("myModal").style.display= "block";
 var a = this.id.replace("pic", "");
-document.getElementById("modalbody").innerHTML = '<img src="' + pictures[a].link+'" width=100%></img>Àâòîð ôîòî:'+pictures[a].author_id+'<br>Îïèñàíèå: '+pictures[a].description;
+document.getElementById("modalbody").innerHTML = '<img src="' + pictures[a].link+'" width=100%></img>Автор фото:'+pictures[a].author_id+'<br>Описание: '+pictures[a].description;
 };
 
 function displayblock(){
